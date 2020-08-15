@@ -1,21 +1,28 @@
 import React from 'react';
 import './post-add-form.css';
 
-const PostAddForm = () => {
-  return (
-    <form className="bottom-panel d-flex">
-      <input
-        type="text"
-        placeholder="write something"
-        className="form-control new-post-label"
-      />
-      <button
-        type="submit"
-        className="btn btn-outline-secondary">
-      Add
-      </button>
-    </form>
-  )
-}
+export default class PostAddForm extends React.Component {
+  constructor(props) {
+    super(props);
 
-export default PostAddForm;
+  }
+
+  render() {
+    const {onAdd} = this.props;
+    return (
+      <div className="bottom-panel d-flex">
+        <input
+          type="text"
+          placeholder="write something"
+          className="form-control new-post-label"
+        />
+        <button
+          type="submit"
+          className="btn btn-outline-secondary"
+          onClick={() => onAdd('Hello World')}>
+        Add
+        </button>
+      </div>
+    )
+  }
+}
